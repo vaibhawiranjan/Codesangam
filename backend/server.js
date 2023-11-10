@@ -1,7 +1,23 @@
-const express=require(`express`)
-
+require(`dotenv`).config()
+const express=require(`express`);
+const mongoose=require(`mongoose`);
+const workoutRoutes=require(`./routes/enter`);
 const app=express();
+app.use(express.json())
+app.use((req,res,next)=>{
+    console.log(req.path,req.method)
+    next()
+})
 
-app.listen(4000,()=>{
-    console.log("Listening")
+app.use(`/api/notes`,workoutRoutes)
+//db
+mongoose.connect(process.env.MONGO_URI)
+.then(()=>{
+    console.log("connected")
+})
+.catch((error)=>{
+    console.log(error)
+})
+app.listen(process.env.PORT,()=>{
+    console.log(`LIstening at${process.env.PORT}`);
 })
