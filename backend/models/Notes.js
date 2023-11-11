@@ -7,7 +7,7 @@ const noteSchema=new Schema({
     },
    
     Deadline:{
-        type:Number,
+        type:Date,
         required:true
        
     }
