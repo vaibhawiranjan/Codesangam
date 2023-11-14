@@ -1,5 +1,5 @@
 const express=require(`express`)
-const requireAuth=require(`../middleware/requireAuth.js`)
+const requireAuth=require(`../middleware/useAuth.js`)
 const {createNote,getAllNotes,getNotes,deleteNote,updateNote}=require(`../controllers/NoteController.js`)
 const Notes=require(`../models/Notes.js`)
 const router=express.Router()
