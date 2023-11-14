@@ -5,13 +5,20 @@ const noteSchema=new Schema({
         type:String,
         required:true
     },
-   
-    Deadline:{
-        type:Date,
+   description:{
+    type:String,
+    required:true
+   },
+    deadline:{
+        type:Number,
         required:true
        
+    },
+    user_id:{
+        type:String,
+        required:true
     }
 },{timestamps:true})
 
-module.exports=mongoose.model(`Notes`,noteSchema)//The first is database collection
+module.exports=mongoose.model(`Notes`,noteSchema)
 

@@ -17,9 +17,26 @@ const getNotes=async(req,res)=>{
     res.status(200).json(note)
 }
 const createNote=async(req,res)=>{
-    const{title,Deadline}=req.body
+    const{title,description,deadline}=req.body
+    let emptyfields=[]
+    if(!title){
+        emptyfields.push('title')
+    }
+    if(!deadline){
+        emptyfields.push('deadline')
+    }
+    if(!description){
+        emptyfields.push('title')
+    }
+    if(emptyfields.length>0){
+        res.status(400).json({error:"Please fill in all the details",emptyfields})
+    }
+
+
+
+
     try{
-        const note=await Notes.create({title,Deadline})
+        const note=await Notes.create({title,Deadline,user_id})
         res.status(200).json(note)
     }
     catch(err){
