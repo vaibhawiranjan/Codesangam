@@ -1,21 +1,21 @@
 import { useState } from "react"
-import { useWorkoutsContext } from "./hooks/useWorkoutContext"  
+import { useNotesContext } from "./hooks/useNotesContext"  
  
-const WorkoutForm=()=>{
-    const {dispatch}=useWorkoutsContext()
+const NoteForm=()=>{
+    const {dispatch}=useNotesContext()
     const [title,setTitle]=useState('')
-    const [load,setLoad]=useState('')
-    const [reps,setReps]=useState('')
+    const [description,setDescription]=useState('')
+    const [deadline,setDeadline]=useState('')
     const [error,setError]=useState(null)
 
 
     const handleSubmit=async(e)=>{
         e.preventDefault()
 
-        const workout={title,load,reps}
-        const response=await fetch('/api/workouts',{
+        const note={title,description,deadline}
+        const response=await fetch('/api/notes',{
             method:'POST',
-            body:JSON.stringify(workout),
+            body:JSON.stringify(note),
             headers:{
                 'Content-Type':'application/json'
             }
@@ -27,11 +27,11 @@ setError(json.error)
 
         if(response.ok){
             setTitle('')
-            setLoad('')
-            setReps('')
+            setDescription('')
+            setDeadline('')
             setError(null)
             console.log('added',json)
-            dispatch({type:'CREATE_WORKOUT',payload:json})
+            dispatch({type:'CREATE_NOTE',payload:json})
         }
     }
 
@@ -45,10 +45,10 @@ setError(json.error)
 
 
             <label>Description</label>
-            <input type="number" onChange={(e)=>setLoad(e.target.value)} value={load}></input>
+            <input type="text" onChange={(e)=>setDescription(e.target.value)} value={description}></input>
 
-            <label>Importance</label>
-            <input type="number" onChange={(e)=>setReps(e.target.value)} value={reps}></input>
+            <label>Deadline(No. of days alloted for the task)</label>
+            <input type="number" onChange={(e)=>setDeadline(e.target.value)} value={deadline}></input>
 
 
 <button>ADD TASK</button>
@@ -57,4 +57,4 @@ setError(json.error)
     )
 }
 
-export default WorkoutForm
+export default NoteForm

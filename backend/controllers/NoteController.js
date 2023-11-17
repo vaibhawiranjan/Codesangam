@@ -10,11 +10,11 @@ const getNotes=async(req,res)=>{
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error:"no such notes exist"})
     }
-    const workout=await Workout.findById(id)
-    if(!workout){
+    const note=await Note.findById(id)
+    if(!note){
        return res.status(404).json({error:"No such notes exist"})
     }
-    res.status(200).json(workout)
+    res.status(200).json(note)
 }
 const createNote=async(req,res)=>{
     const{title,description,deadline}=req.body
@@ -56,13 +56,13 @@ const deleteNote=async(req,res)=>{
 const updateNote=async(req,res)=>{
     const {id}=req.params
     if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error:"no such workout"})
+        return res.status(404).json({error:"no such note exists"})
     }
     const note=await Note.findOneAndUpdate({_id: id},{
         ...req.body
     })
     if(!note){
-       return res.status(404).json({error:"No such workout"})
+       return res.status(404).json({error:"No such note exists"})
     }
     res.status(200).json(note)
 

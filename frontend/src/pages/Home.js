@@ -1,32 +1,32 @@
 import {useEffect} from 'react'
-import { useWorkoutsContext } from '../components/hooks/useWorkoutContext'
-import WorkoutDetails from '../components/WorkoutDetails'
-import WorkoutForm from '../components/WorkoutForm'
+import { useNotesContext } from '../components/hooks/useNotesContext'
+import NoteDetails from '../components/NoteDetails'
+import Noteform from '../components/NoteForm'
 const Home=()=>{
 
-  const {workouts,dispatch}=useWorkoutsContext()
+  const {notes,dispatch}=useNotesContext()
   
   
 useEffect(()=>{
-  const fetchWorkouts=async()=>{
-    const response=await fetch('/api/workouts') //localbackend
+  const fetchNotes=async()=>{
+    const response=await fetch('/api/notes') //localbackend
    const json=await response.json()
    if(response.ok){
-    dispatch({type:'SET_WORKOUTS',playload:json})
+    dispatch({type:'SET_NOTES',playload:json})
    }
 }
    
-fetchWorkouts()
+fetchNotes()
 },[dispatch])
 
 return(
   <div className="home">
-   <div className='workouts'>
-    {workouts && workouts.map(workout=>(
-      <WorkoutDetails key={workout._id} workout={workout}/>
+   <div className='NOTE'>
+    {notes && notes.map(note=>(
+      <NoteDetails key={note._id} note={note}/>
     ))}
    </div>
-   <WorkoutForm/>
+   <Noteform/>
   </div>
 )
 }
