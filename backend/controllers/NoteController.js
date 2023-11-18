@@ -17,6 +17,7 @@ const getNotes=async(req,res)=>{
     res.status(200).json(note)
 }
 const createNote=async(req,res)=>{
+    console.log("hello")
     const{title,description,deadline}=req.body
     let emptyFields=[]
     if(!title){

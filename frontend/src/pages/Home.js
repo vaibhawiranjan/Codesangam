@@ -9,8 +9,9 @@ const Home=()=>{
   
 useEffect(()=>{
   const fetchNotes=async()=>{
-    const response=await fetch('/api/notes') //localbackend
+    const response=await fetch('http://localhost:4000/api/notes') //localbackend
    const json=await response.json()
+   console.log(json)
    if(response.ok){
     dispatch({type:'SET_NOTES',playload:json})
    }
