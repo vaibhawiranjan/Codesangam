@@ -6,6 +6,7 @@ const NoteForm=()=>{
     const [title,setTitle]=useState('')
     const [description,setDescription]=useState('')
     const [deadline,setDeadline]=useState('')
+    const [colour,setColour]=useState('')
     const [error,setError]=useState(null)
 
 
@@ -40,15 +41,22 @@ setError(json.error)
             <h3>Add a task !!</h3>
 
             <label>Title</label>
-            <input type="text" onChange={(e)=>setTitle(e.target.value)} value={title}></input>
-
-
+            <input className="input" type="text" onChange={(e)=>setTitle(e.target.value)} value={title}></input>
 
             <label>Description</label>
-            <input type="text" onChange={(e)=>setDescription(e.target.value)} value={description}></input>
+            <input className="input" type="text" onChange={(e)=>setDescription(e.target.value)} value={description}></input>
 
             <label>Deadline(No. of days alloted for the task)</label>
-            <input type="number" onChange={(e)=>setDeadline(e.target.value)} value={deadline}></input>
+            <input className="input" type="number" onChange={(e)=>setDeadline(e.target.value)} value={deadline}></input>
+ 
+             <label>Priority</label>
+             
+            <input className="color" id="red" type="radio" name="color" onClick={() => setColour("red")}/>Urgent
+          
+            <input className="color" id="yellow" type="radio" name="color" onClick={() => setColour("yellow")} />Important
+            
+            <input className="color" id="green"type="radio" name="color"  onClick={() => setColour("green")} />Minor Task
+            
 
 
 <button>ADD TASK</button>

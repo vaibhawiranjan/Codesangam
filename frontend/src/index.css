@@ -38,7 +38,7 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
-.workout-details {
+.note-details {
   background: #f4faffff;
   border-radius: 4px;
   margin: 20px auto;
@@ -46,17 +46,17 @@ header a {
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
-.workout-details h4 {
+.note-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
   color: var(--primary);
 }
-.workout-details p {
+.note-details p {
   margin: 0;
   font-size: 0.9em;
   color: #555;
 }
-.workout-details span {
+.note-details span {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -71,7 +71,7 @@ header a {
 label, input {
   display: block;
 }
-input {
+.input {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -84,6 +84,7 @@ form button {
   background: var(--primary);
   border: 0;
   color: saffron;
+  
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
@@ -100,3 +101,21 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
+
+.color{
+  display: inline-block;
+  justify-content: space-between; 
+}
+
+.note-detailsred{
+  background: rgb(209, 118, 118)(186, 153, 153);
+}
+
+.note-detailsyellow{
+  background: rgb(202, 227, 60)(186, 153, 153);
+}
+
+.note-detailsgreen{
+  background: rgb(191, 197, 100)(186, 153, 153);
+}
+

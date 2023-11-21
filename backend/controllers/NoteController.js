@@ -1,7 +1,7 @@
 const Note=require(`../models/Notes`)
 const mongoose=require(`mongoose`)
 const getAllNotes=async(req,res)=>{
-    const user_id=req.user._id
+     const user_id=req.user._id
     const notes=await Note.find({user_id}).sort({createdAt: -1})//all elemets in descending order
     res.status(200).json(notes)
 }
@@ -33,8 +33,10 @@ const createNote=async(req,res)=>{
         return res.status(400).json({error:'Please fill in all details',emptyFields})
     }
     try{
-        const user_id=req.user._id
-        const note=await Note.create({title,description,deadline,user_id})
+         const user_id=req.user._id
+         const note=await Note.create({title,description,deadline,user_id})
+        
+
         res.status(200).json(note)
     }
     catch(error){
