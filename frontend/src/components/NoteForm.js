@@ -8,10 +8,11 @@ const NoteForm=()=>{
     const [deadline,setDeadline]=useState('')
     const [colour,setColour]=useState('')
     const [error,setError]=useState(null)
+    const [emptyFields, setEmptyFields] = useState([])
 
 
     const handleSubmit=async(e)=>{
-        e.preventDefault()
+        e.preventDefault() //so that form auto submit na ho
 
         const note={title,description,deadline}
         const response=await fetch('http://localhost:4000/api/notes',{
@@ -21,17 +22,19 @@ const NoteForm=()=>{
                 'Content-Type':'application/json'
             }
         })
-        const json=await response.json()
+     const json=await response.json()
         if(!response.ok){
 setError(json.error)
+setEmptyFields(json.emptyFields)
         }
 
         if(response.ok){
+            setEmptyFields([])
             setTitle('')
             setDescription('')
             setDeadline('')
             setError(null)
-            console.log('added',json)
+            
             dispatch({type:'CREATE_NOTE',payload:json})
         }
     }
@@ -41,7 +44,9 @@ setError(json.error)
             <h3>Add a task !!</h3>
 
             <label>Title</label>
-            <input className="input" type="text" onChange={(e)=>setTitle(e.target.value)} value={title}></input>
+            <input className="input" type="text" onChange={(e)=>setTitle(e.target.value)} value={title} 
+            
+            ></input>
 
             <label>Description</label>
             <input className="input" type="text" onChange={(e)=>setDescription(e.target.value)} value={description}></input>
@@ -49,13 +54,13 @@ setError(json.error)
             <label>Deadline(No. of days alloted for the task)</label>
             <input className="input" type="number" onChange={(e)=>setDeadline(e.target.value)} value={deadline}></input>
  
-             <label>Priority</label>
+             {/* <label>Priority</label>
              
             <input className="color" id="red" type="radio" name="color" onClick={() => setColour("red")}/>Urgent
           
             <input className="color" id="yellow" type="radio" name="color" onClick={() => setColour("yellow")} />Important
             
-            <input className="color" id="green"type="radio" name="color"  onClick={() => setColour("green")} />Minor Task
+            <input className="color" id="green"type="radio" name="color"  onClick={() => setColour("green")} />Minor Task */}
             
 
 

@@ -10,13 +10,13 @@ switch(action.type){
         }
     case 'CREATE_NOTES':
         return {
-            note:[action.payload,...state.notes]
+            notes:[action.payload,...state.notes]
         }
-        case 'DELETE_NOTES':{
+        case 'DELETE_NOTE':
             return{
-                notes:state.workouts.filter((w)=>w.id!==action.payload._id)
+                notes:state.workouts.filter((w)=>w._id!==action.payload._id)
             }
-        }
+        
     default:
         return state
 }
