@@ -9,7 +9,7 @@ const handleClick=async()=>{
   const json=await response.json()//jo delete document h vo ayha ajayega
 
   if(response.ok){
-dispatch({type:'DELETE_NOTES',payload:json})
+dispatch({type:'DELETE_NOTE',payload:json})
   }
 }
 
