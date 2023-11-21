@@ -3,7 +3,7 @@
 
 /* layout */
 :root {
-  --primary: #1aac83;
+  --primary: hsl(163, 74%, 39%);
   --error: #e7195a;
 }
 body {
@@ -11,6 +11,7 @@ body {
   margin: 0;
   font-family: "Poppins";
 }
+
 header {
   background: #f4faffff;
 }
@@ -21,9 +22,10 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color:#DBE2EF;
 }
 header a {
-  color: #333;
+  color: #112D4E;
   text-decoration: none;
 }
 .pages{
@@ -39,7 +41,7 @@ header a {
   gap: 100px;
 }
 .note-details {
-  background: #f4faffff;
+  background: #DBE2EF;
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
@@ -49,7 +51,7 @@ header a {
 .note-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: #3F72AF;
 }
 .note-details p {
   margin: 0;
@@ -76,14 +78,14 @@ label, input {
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid #112D4E;
   border-radius: 4px;
   box-sizing: border-box;
 }
 form button {
-  background: var(--primary);
+  background:#112D4E;
   border: 0;
-  color: saffron;
+  color: white;
   
   padding: 10px;
   font-family: "Poppins";
@@ -102,20 +104,5 @@ input.error {
   border: 1px solid var(--error);
 }
 
-.color{
-  display: inline-block;
-  justify-content: space-between; 
-}
 
-.note-detailsred{
-  background: rgb(209, 118, 118)(186, 153, 153);
-}
-
-.note-detailsyellow{
-  background: rgb(202, 227, 60)(186, 153, 153);
-}
-
-.note-detailsgreen{
-  background: rgb(191, 197, 100)(186, 153, 153);
-}
 
