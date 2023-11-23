@@ -8,7 +8,7 @@ switch(action.type){
         return {
             notes:action.payload
         }
-    case 'CREATE_NOTES':
+    case 'CREATE_NOTE':
         return {
             notes:[action.payload,...state.notes]
         }

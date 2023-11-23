@@ -4,7 +4,7 @@ import { useNotesContext } from "./useNotesContext"
 export const useLogout = () => {
 
     const {dispatch} = useAuthContext()
-    const {dispatch : notesDispatch} = useNotesContext()
+    const {dispatch : dispatchNotes} = useNotesContext()
 
     const logout= () =>{
     //remove user form local storage
@@ -12,7 +12,7 @@ export const useLogout = () => {
 
     //dispatch logout action
     dispatch({type: 'LOGOUT'})
-    dispatch({type: 'SET_NOTES' , payload:null})
+    dispatchNotes({type: 'SET_NOTES' , payload:null})
     }
     
     return {logout}

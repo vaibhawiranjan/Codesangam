@@ -1,11 +1,17 @@
 // import { NotesContext } from "../contexts/NotesContext"
 import { useNotesContext } from "./hooks/useNotesContext"
 // import formatDistanceToNow from "date-fns/formatDistanceToNow"
-
+import { useAuthContext } from './hooks/useAuthContext'
 const NoteDetails=({note})=>{
 const {dispatch}=useNotesContext()
+const { user } = useAuthContext()
 const handleClick=async()=>{
-  const response=await fetch('http://localhost:4000/api/notes/' + note._id,{method:'DELETE'})
+  if (!user) {
+    return
+  }
+  const response=await fetch('http://localhost:4000/api/notes/' + note._id,{method:'DELETE', headers: {
+    'Authorization': `Bearer ${user.token}`}
+  })
   const json=await response.json()//jo delete document h vo ayha ajayega
 
   if(response.ok){

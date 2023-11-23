@@ -1,35 +1,45 @@
 import { useState } from "react"
 import { useNotesContext } from "./hooks/useNotesContext"  
+import { useAuthContext } from './hooks/useAuthContext'
  
 const NoteForm=()=>{
     const {dispatch}=useNotesContext()
+    const { user } = useAuthContext()
     const [title,setTitle]=useState('')
     const [description,setDescription]=useState('')
     const [deadline,setDeadline]=useState('')
-    const [colour,setColour]=useState('')
+    
     const [error,setError]=useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
+
 
 
     const handleSubmit=async(e)=>{
         e.preventDefault() //so that form auto submit na ho
+
+        if (!user) {
+            setError('You must be logged in')
+            return
+          }
+
+
 
         const note={title,description,deadline}
         const response=await fetch('http://localhost:4000/api/notes',{
             method:'POST',
             body:JSON.stringify(note),
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
      const json=await response.json()
         if(!response.ok){
 setError(json.error)
-setEmptyFields(json.emptyFields)
+
         }
 
         if(response.ok){
-            setEmptyFields([])
+            
             setTitle('')
             setDescription('')
             setDeadline('')
