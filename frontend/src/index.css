@@ -104,5 +104,25 @@ input.error {
   border: 1px solid var(--error);
 }
 
+.login,.signup{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+   
+  max-width: 450px;
+  box-shadow: 4px 4px 40px #d2d2d2;
+  padding: 20px;
+  padding-bottom: 40px;
+  border-radius: 20px;
+ }
+ .input-login,.input-signup{
+   background-color: #ecebeb;
+   
+ }
+ .login-button{
+   margin-top: 5px;
+   align-self: center;
+   width : 25%;
+ }
 
 
