@@ -1,6 +1,6 @@
 // import { NotesContext } from "../contexts/NotesContext"
 import { useNotesContext } from "./hooks/useNotesContext"
-// import formatDistanceToNow from "date-fns/formatDistanceToNow"
+
 import { useAuthContext } from './hooks/useAuthContext'
 const NoteDetails=({note})=>{
 const {dispatch}=useNotesContext()
@@ -25,7 +25,7 @@ dispatch({type:'DELETE_NOTE',payload:json})
        <h4>{note.title}</h4>
         <p><strong>Description  </strong>{note.description}</p>
         <p><strong>Deadline </strong>{note.deadline}</p>
-        {/* <p>{formatDistanceToNow(new Date(note.createAt,{addSuffix:true}))}</p> */}
+        <p>{note.createAt}</p>
          <span onClick={handleClick}>delete</span>
     </div>
 )

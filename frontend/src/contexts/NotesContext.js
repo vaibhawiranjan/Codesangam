@@ -6,15 +6,15 @@ export const notesReducer=(state,action)=>{
 switch(action.type){
     case 'SET_NOTES':
         return {
-            notes:action.payload
+            notes:action.payload 
         }
     case 'CREATE_NOTE':
         return {
-            notes:[action.payload,...state.notes]
+            notes:[action.payload,...state.notes] // we are addding action.payload to the notes array and using ... to maintain prev array
         }
         case 'DELETE_NOTE':
             return{
-                notes:state.workouts.filter((w)=>w._id!==action.payload._id)
+                notes:state.notes.filter((w)=>w._id!==action.payload._id)
             }
         
     default:
@@ -28,9 +28,11 @@ export const NotesContextProvider=({children})=>{
     
     return (
     <NotesContext.Provider value={{...state,dispatch}}>
+        
 
           {children} 
         </NotesContext.Provider>
+        //mentioning dispatch function here makes its use all over the application tree 
     
     
     )

@@ -36,7 +36,8 @@ setError(json.error)
         }
 
         if(response.ok){
-            
+        
+            //resetting these value to null
             setTitle('')
             setDescription('')
             setDeadline('')

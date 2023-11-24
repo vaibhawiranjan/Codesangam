@@ -19,14 +19,14 @@ useEffect(()=>{
    const json=await response.json()
    
    if(response.ok){
-    dispatch({type:'SET_NOTES',payload:json})
+    dispatch({type:'SET_NOTES',payload:json})//this dispatch is from notecontexts
    }
 }
    
 if (user) {
   fetchNotes()
 }
-}, [dispatch, user])
+}, [dispatch, user]) //whenver dispatch and user changes .....
 
 return(
   <div className="home">
