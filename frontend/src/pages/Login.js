@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useLogin } from '../components/hooks/useLogin';
 
 
@@ -15,7 +15,7 @@ const Login = () => {
 
 
     }
-  return (<>
+  return (
 
     <form className='login' onSubmit={handleSubmit}>
 
@@ -33,13 +33,13 @@ const Login = () => {
             type='password'
             onChange={(e)=> {setPassword(e.target.value)}}
             value={password}
-        />
+     />
 
         <button className='login-button' disabled={isLoading}>Login</button>
         {error && <div className='error'>{error}</div>}
 
     </form>
-    </>
+    
   )
 }
 

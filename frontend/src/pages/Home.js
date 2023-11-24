@@ -12,7 +12,7 @@ const Home=()=>{
 useEffect(()=>{
   const fetchNotes=async()=>{
     const response=await fetch('http://localhost:4000/api/notes',{
-    header :  {
+    headers :  {
       'Authorization' : `Bearer ${user.token}`
     }
   }) //localbackend
@@ -23,8 +23,10 @@ useEffect(()=>{
    }
 }
    
-fetchNotes()
-},[dispatch])
+if (user) {
+  fetchNotes()
+}
+}, [dispatch, user])
 
 return(
   <div className="home">

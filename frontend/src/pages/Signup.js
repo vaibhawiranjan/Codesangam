@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSignup } from '../components/hooks/useSignup';
 const Signup = () => {
     const [email,setEmail] = useState('');
@@ -14,7 +14,7 @@ const Signup = () => {
 
 
     }
-  return (<>
+  return (
     <form className='signup' onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
         <label>Email:</label>
@@ -37,7 +37,7 @@ const Signup = () => {
 
 
     </form>
-    </>
+    
   )
 }
 

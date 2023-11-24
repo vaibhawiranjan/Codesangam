@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNotesContext } from "./hooks/useNotesContext"  
 import { useAuthContext } from './hooks/useAuthContext'
- 
+
 const NoteForm=()=>{
     const {dispatch}=useNotesContext()
     const { user } = useAuthContext()
@@ -20,9 +20,6 @@ const NoteForm=()=>{
             setError('You must be logged in')
             return
           }
-
-
-
         const note={title,description,deadline}
         const response=await fetch('http://localhost:4000/api/notes',{
             method:'POST',
@@ -55,7 +52,6 @@ setError(json.error)
 
             <label>Title</label>
             <input className="input" type="text" onChange={(e)=>setTitle(e.target.value)} value={title} 
-            
             ></input>
 
             <label>Description</label>

@@ -19,6 +19,7 @@ const Navbar=()=>{
             <Link to='/'>
                 <h1>Moonlight Scroll</h1>
             </Link>
+            <nav>
             { user && 
             (   
                 <div>
@@ -32,6 +33,7 @@ const Navbar=()=>{
                 <Link to='/signup'className='nav-buttons'>Signup</Link>
             </div>
             )}
+            </nav>
         </div> 
     </header>
 
