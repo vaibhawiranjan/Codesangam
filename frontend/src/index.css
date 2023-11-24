@@ -18,7 +18,9 @@ header {
 header .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 10px 20px;
+  margin-top: 20px;
+  padding: 0px 50px;
+  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -106,23 +108,32 @@ input.error {
 
 .login,.signup{
   margin: auto;
+  margin-top: 140px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
    
   max-width: 450px;
   box-shadow: 4px 4px 40px #d2d2d2;
   padding: 20px;
-  padding-bottom: 40px;
   border-radius: 20px;
  }
  .input-login,.input-signup{
+   margin-top: 10px ;
+   margin-bottom: 10px ;
    background-color: #ecebeb;
+   border: 1px solid #ccc;
+   border-radius: 2px;
+   height:25px
    
  }
- .login-button{
-   margin-top: 5px;
+ .login-button,.signup-button{
+   margin-top: 10px;
    align-self: center;
-   width : 25%;
+   width: 100%;
+ }
+ .nav-buttons{
+  margin: 5px;
  }
 
 
