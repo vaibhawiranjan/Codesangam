@@ -22,7 +22,7 @@ const loginUser=async(req,res)=>{
               }
           });
           const info = await transporter.sendMail({
-              from: '"VAIBHAWI 👻" <annahartvr@gmail.com>', // sender address
+              from: '"VAIBHAWI " <annahartvr@gmail.com>', // sender address
               to: email, // list of receivers
               subject: "Hello ✔", // Subject line
               html: "<b>New login</b> <br> Complete pending tasks", // html body
